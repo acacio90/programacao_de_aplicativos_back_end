@@ -23,6 +23,9 @@ module.exports = {
       contact_student: {
         type: Sequelize.STRING
       },
+      city_student: {
+        type: Sequelize.STRING
+      },
       description_student: {
         type: Sequelize.STRING
       },
