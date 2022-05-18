@@ -6,8 +6,8 @@ class Project extends Model {
       {
         name_project: DataTypes.STRING,
         ideal_period_project: DataTypes.STRING,
-        couser_project: DataTypes.STRING,
-        weekly_period_project: DataTypes.STRING,
+        course_project: DataTypes.STRING,
+        weekly_workload_project: DataTypes.STRING,
         email_project: DataTypes.STRING,
         schedules_project: DataTypes.STRING,
         number_vacancies_project: DataTypes.STRING,

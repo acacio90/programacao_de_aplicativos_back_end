@@ -3,9 +3,10 @@ import dbConfig from './config/database'
 
 import Internship from '../app/models/internship';
 import Professor from '../app/models/professor';
+import Project from '../app/models/project';
 
 
-const models = [Internship, Professor];
+const models = [Internship, Professor, Project];
 
 class Database {
   constructor() {
