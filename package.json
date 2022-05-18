@@ -23,6 +23,6 @@
   "scripts": {
     "start": "sucrase-node src/server.js",
     "dev": "nodemon src/server.js",
-    "build": "sequelize db:migrate && sequelize db:seed:undo:all && sequelize db:seed:all --env production"
+    "build": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
   }
 }

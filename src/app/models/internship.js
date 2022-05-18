@@ -25,10 +25,10 @@ class Internship extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Professor, {
-      foreignKey: 'professor_responsable_internship',
-      as: 'professor_internship'
-    })
+    // this.hasMany(models.Professor, {
+    //   foreignKey: 'professor_responsable_internship',
+    //   as: 'professor_internship'
+    // })
   }
 }
 
