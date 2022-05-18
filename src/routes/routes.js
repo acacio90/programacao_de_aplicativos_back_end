@@ -2,6 +2,8 @@ import { Router } from 'express';
 import InternshipController from '../app/controllers/InternshipController';
 import ProfessorController from '../app/controllers/ProfessorController';
 import ProjectController from '../app/controllers/ProjectController';
+import StudentController from '../app/controllers/StudentController';
+
 
 const routes = Router();
 
@@ -31,5 +33,12 @@ routes.get('/ProjectIndex', ProjectController.index);
 routes.post('/ProjectShow', ProjectController.show);
 routes.post('/ProjectDestroy', ProjectController.destroy);
 routes.post('/ProjectUpdate', ProjectController.update);
+
+// Student - Testes 
+routes.post('/StudentStore', StudentController.store);
+routes.get('/StudentIndex', StudentController.index);
+routes.post('/StudentShow', StudentController.show);
+routes.post('/StudentDestroy', StudentController.destroy);
+routes.post('/StudentUpdate', StudentController.update);
 
 export default routes;
