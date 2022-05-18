@@ -2,16 +2,16 @@ const argon2 = require('argon2');
 
 module.exports = {
   up: async (queryInterface, Sequelize) =>
-    queryInterface.bulkInsert('Admins', [
+    queryInterface.bulkInsert('admins', [
       {
         username_admin: 'test',
         password_admin: await argon2.hash('test'),
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
     ]),
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete('Admins', null, {});
+    await queryInterface.bulkDelete('admins', null, {});
   },
 };
