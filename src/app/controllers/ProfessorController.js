@@ -1,4 +1,6 @@
 import ProfessorModel from '../models/professor';
+import * as argon2 from 'argon2';
+
 
 class ProfessorController {
   async store(req, res) {
@@ -12,9 +14,11 @@ class ProfessorController {
         status_professor } =
       req.body;
     
+    const hash = await argon2.hash(password_professor);
+
     const Professor = await ProfessorModel.create({
         username_professor,
-        password_professor,
+        password_professor: hash,
         course_professor,
         email_professor,
         contact_professor,

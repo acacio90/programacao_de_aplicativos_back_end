@@ -1,13 +1,14 @@
 import Sequelize from 'sequelize';
-import dbConfig from './config/database'
+import dbConfig from '../config/database'
 
 import Internship from '../app/models/internship';
 import Professor from '../app/models/professor';
 import Project from '../app/models/project';
 import Student from '../app/models/student';
+import Admin from '../app/models/admin';
 
 
-const models = [Internship, Professor, Project, Student];
+const models = [Internship, Professor, Project, Student, Admin];
 
 class Database {
   constructor() {

@@ -25,10 +25,10 @@ class Project extends Model {
   }
 
   static associate(models) {
-    this.hasMany(models.Professor, {
-      foreignKey: 'professor_responsable_project',
-      as: 'professor_project'
-    })
+    // this.hasMany(models.Professor, {
+    //   foreignKey: 'professor_responsable_project',
+    //   as: 'professor_project'
+    // })
   }
 }
 

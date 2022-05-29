@@ -1,4 +1,5 @@
 import StudentModel from '../models/student';
+import * as argon2 from 'argon2';
 
 class StudentController {
   async store(req, res) {
@@ -14,9 +15,11 @@ class StudentController {
         period_student } =
       req.body;
     
+    const hash = await argon2.hash(password_student);
+
     const Student = await StudentModel.create({
         username_student,
-        password_student,
+        password_student: hash,
         course_student,
         email_student,
         contact_student,

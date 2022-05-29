@@ -22,6 +22,7 @@ class Professor extends Model {
 
   static associate(models) {
   }
+
 }
 
 export default Professor;

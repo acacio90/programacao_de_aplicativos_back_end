@@ -1,5 +1,6 @@
 import app from './app';
+require('dotenv').config();
 
-app.listen(3000, () => {
-  console.log('running on port 3000');
+app.listen(process.env.PORT, () => {
+  console.log('Running on '+ process.env.APP_URL);
 });
