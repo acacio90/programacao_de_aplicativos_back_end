@@ -1,4 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
+import * as argon2 from 'argon2'
 
 class Professor extends Model {
   static init(connection) {
@@ -23,6 +24,9 @@ class Professor extends Model {
   static associate(models) {
   }
 
+  checkPassword(password) {
+    return argon2.verify(this.password_professor, password);
+  }
 }
 
 export default Professor;

@@ -3,9 +3,9 @@ import jwt from 'jsonwebtoken';
 import authConfig from '../../config/auth';
 
 // MODELS
-import AdminModel from '../models/admin';
+import ProfessorModel from '../models/professor';
 
-class SessionAdminController {
+class SessionProfessorController {
   async store(req, res) {
     try {
       const schema = Yup.object().shape({
@@ -16,32 +16,31 @@ class SessionAdminController {
       if (!(await schema.isValid(req.body))) {
         return res.status(400).json({ error: 'Falha na validação!' });
       }
-
+      
       const { username, password } = req.body;
 
-      const Admin = await AdminModel.findOne({ 
-        where: { username_admin: username }
+      const Professor = await ProfessorModel.findOne({ 
+        where: { username_professor: username }
        });
-       
-      if (!Admin) {
+
+      if (!Professor) {
         return res.status(403).json({ error: 'Username Inválido!' });
       }
-      
-      if (!(await Admin.checkPassword(password))) {
+
+      if (!(await Professor.checkPassword(password))) {
         return res.status(403).json({ error: 'Senha Incorreta!' });
       }
-      
+      console.log("test")
       return res.status(200).json({
         username,
         token: jwt.sign({ username }, authConfig.secret, {
           expiresIn: authConfig.expireIn,
         }),
       });
-
     } catch (err) {
       return res.status(500).json(err);
     }
   }
 }
 
-export default new SessionAdminController();
+export default new SessionProfessorController();

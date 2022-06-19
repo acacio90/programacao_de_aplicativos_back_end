@@ -4,6 +4,8 @@ import ProfessorController from '../app/controllers/ProfessorController';
 import ProjectController from '../app/controllers/ProjectController';
 import StudentController from '../app/controllers/StudentController';
 import SessionAdminController from '../app/controllers/SessionAdminController';
+import SessionProfessorController from '../app/controllers/SessionProfessorController';
+import SessionStudentController from '../app/controllers/SessionStudentController';
 
 import verifyJWT from '../app/middlewares/jwtVerify';
 
@@ -29,7 +31,10 @@ routes.post('/ProfessorShow', ProfessorController.show);
 routes.post('/ProfessorDestroy', ProfessorController.destroy);
 routes.post('/ProfessorUpdate', ProfessorController.update);
 
+//ROTAS DE LOGIN
 routes.post('/Admin/login', SessionAdminController.store);
+routes.post('/Professor/login', SessionProfessorController.store);
+routes.post('/Student/login', SessionStudentController.store);
 
 // Project - Testes 
 routes.post('/ProjectStore', ProjectController.store);
