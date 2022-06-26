@@ -1,14 +1,15 @@
 import { Model, DataTypes } from 'sequelize';
 import * as argon2 from 'argon2'
 
+
 class Professor extends Model {
   static init(connection) {
     super.init(
       {
         username_professor: DataTypes.STRING,
         password_professor: DataTypes.STRING,
-        access_professor: DataTypes.INTEGER,
         turno_professor: DataTypes.STRING,
+        access_professor: DataTypes.INTEGER,
         course_professor: DataTypes.STRING,
         turno_professor: DataTypes.STRING,
         email_professor: DataTypes.STRING,
@@ -25,6 +26,10 @@ class Professor extends Model {
   }
 
   static associate(models) {
+    // this.belongsTo(models.File, {
+    //   foreignKey: 'img_id',
+    //   as: 'img',
+    // });
   }
 
   checkPassword(password) {

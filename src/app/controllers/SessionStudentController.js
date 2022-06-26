@@ -9,7 +9,7 @@ class SessionStudentController {
   async store(req, res) {
     try {
       const schema = Yup.object().shape({
-        username: Yup.string().required(),
+        email: Yup.string().required(),
         password: Yup.string().required(),
       });
       // Check body of requisiton
@@ -17,23 +17,23 @@ class SessionStudentController {
         return res.status(400).json({ error: 'Falha na validação!' });
       }
       
-      const { username, password } = req.body;
+      const { email, password } = req.body;
 
       const Student = await StudentModel.findOne({ 
-        where: { username_student: username }
+        where: { email_student: email }
        });
 
       if (!Student) {
-        return res.status(403).json({ error: 'Username Inválido!' });
+        return res.status(403).json({ error: 'Email Inválido!' });
       }
 
       if (!(await Student.checkPassword(password))) {
         return res.status(403).json({ error: 'Senha Incorreta!' });
       }
-
+      const id = Student.id;
       return res.status(200).json({
-        username,
-        token: jwt.sign({ username }, authConfig.secret, {
+        id,
+        token: jwt.sign({ id }, authConfig.secret, {
           expiresIn: authConfig.expireIn,
         }),
       });

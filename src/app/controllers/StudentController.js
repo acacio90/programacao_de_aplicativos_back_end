@@ -5,7 +5,7 @@ class StudentController {
   async store(req, res) {
     const { username_student,
         password_student,
-        name_student,
+        turno_student,
         access_student,
         course_student,
         email_student,
@@ -22,7 +22,7 @@ class StudentController {
     const Student = await StudentModel.create({
         username_student,
         password_student: hash,
-        name_student,
+        turno_student,
         access_student,
         course_student,
         email_student,
@@ -68,7 +68,7 @@ class StudentController {
       const {
         username_student,
         password_student,
-        name_student,
+        turno_student,
         access_student,
         course_student,
         email_student,
@@ -86,7 +86,7 @@ class StudentController {
       Student.set({
         username_student,
         password_student: hash,
-        name_student,
+        turno_student,
         access_student,
         course_student,
         email_student,

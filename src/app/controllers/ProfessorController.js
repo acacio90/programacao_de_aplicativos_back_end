@@ -9,8 +9,8 @@ class ProfessorController {
   async store(req, res) {
     const { username_professor,
         password_professor,
-        access_professor,
         turno_professor,
+        access_professor,
         course_professor,
         email_professor,
         contact_professor,

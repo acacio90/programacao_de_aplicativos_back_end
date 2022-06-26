@@ -14,11 +14,11 @@ module.exports = {
       password_professor: {
         type: Sequelize.STRING
       },
-      access_professor: {
-        type: Sequelize.INTEGER
-      },
       turno_professor: {
         type: Sequelize.STRING
+      },
+      access_professor: {
+        type: Sequelize.INTEGER
       },
       img_id: {
         type: Sequelize.INTEGER,

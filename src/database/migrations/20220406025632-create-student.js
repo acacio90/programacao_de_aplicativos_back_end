@@ -14,7 +14,7 @@ module.exports = {
       password_student: {
         type: Sequelize.STRING
       },
-      name_student: {
+      turno_student: {
         type: Sequelize.STRING
       },
       access_student: {
