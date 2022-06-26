@@ -7,6 +7,8 @@ class Student extends Model {
       {
         username_student: DataTypes.STRING,
         password_student: DataTypes.STRING,
+        name_student: DataTypes.STRING,
+        access_student: DataTypes.INTEGER,
         course_student: DataTypes.STRING,
         email_student: DataTypes.STRING,
         contact_student: DataTypes.STRING,

@@ -1,3 +1,4 @@
+import Internship from '../models/internship';
 import InternshipModel from '../models/internship';
 
 class InternshipController {
@@ -35,7 +36,14 @@ class InternshipController {
   }
 
   async index(req, res) {
-    const Internship = await InternshipModel.findAll();
+
+    const { flag } = req.body;
+
+    const Internship = await InternshipModel.findAll({
+      where: {
+        remuneration_internship: flag
+      },
+    });
     return res.json(Internship);
   }
 

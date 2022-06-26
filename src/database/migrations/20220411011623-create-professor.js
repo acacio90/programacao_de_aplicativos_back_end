@@ -14,6 +14,24 @@ module.exports = {
       password_professor: {
         type: Sequelize.STRING
       },
+      access_professor: {
+        type: Sequelize.INTEGER
+      },
+      turno_professor: {
+        type: Sequelize.STRING
+      },
+      img_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'files',
+          },
+          key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
+        allowNull: true,
+      },
       course_professor: {
         type: Sequelize.STRING
       },

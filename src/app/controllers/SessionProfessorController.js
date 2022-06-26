@@ -30,7 +30,7 @@ class SessionProfessorController {
       if (!(await Professor.checkPassword(password))) {
         return res.status(403).json({ error: 'Senha Incorreta!' });
       }
-      console.log("test")
+      
       return res.status(200).json({
         username,
         token: jwt.sign({ username }, authConfig.secret, {

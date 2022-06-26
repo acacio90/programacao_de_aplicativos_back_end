@@ -36,10 +36,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       remuneration_internship: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       remuneration_value_internship: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       professor_responsable_internship: {
         type: Sequelize.STRING

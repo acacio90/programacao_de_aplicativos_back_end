@@ -6,9 +6,9 @@ import Professor from '../app/models/professor';
 import Project from '../app/models/project';
 import Student from '../app/models/student';
 import Admin from '../app/models/admin';
+import Candidate from '../app/models/candidate';
 
-
-const models = [Internship, Professor, Project, Student, Admin];
+const models = [Internship, Professor, Project, Student, Admin, Candidate];
 
 class Database {
   constructor() {

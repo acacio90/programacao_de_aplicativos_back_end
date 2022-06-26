@@ -14,6 +14,12 @@ module.exports = {
       password_student: {
         type: Sequelize.STRING
       },
+      name_student: {
+        type: Sequelize.STRING
+      },
+      access_student: {
+        type: Sequelize.INTEGER
+      },
       course_student: {
         type: Sequelize.STRING
       },

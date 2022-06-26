@@ -7,7 +7,10 @@ class Professor extends Model {
       {
         username_professor: DataTypes.STRING,
         password_professor: DataTypes.STRING,
+        access_professor: DataTypes.INTEGER,
+        turno_professor: DataTypes.STRING,
         course_professor: DataTypes.STRING,
+        turno_professor: DataTypes.STRING,
         email_professor: DataTypes.STRING,
         contact_professor: DataTypes.STRING,
         city_professor: DataTypes.STRING,

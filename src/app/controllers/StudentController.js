@@ -5,6 +5,8 @@ class StudentController {
   async store(req, res) {
     const { username_student,
         password_student,
+        name_student,
+        access_student,
         course_student,
         email_student,
         contact_student,
@@ -20,6 +22,8 @@ class StudentController {
     const Student = await StudentModel.create({
         username_student,
         password_student: hash,
+        name_student,
+        access_student,
         course_student,
         email_student,
         contact_student,
@@ -62,36 +66,36 @@ class StudentController {
   async update(req, res) {
     try {
       const {
-        id,
-        name_project,
-        ideal_period_project,
-        course_project,
-        weekly_workload_project,
-        email_project,
-        schedules_project,
-        number_vacancies_project,
-        description_project,
-        requirements_project,
-        remuneration_project,
-        remuneration_value_project,
-        professor_responsable_project
+        username_student,
+        password_student,
+        name_student,
+        access_student,
+        course_student,
+        email_student,
+        contact_student,
+        city_student,
+        description_student,
+        image_student,
+        ra_student,
+        period_student
       } = req.body;
 
-      const Student = await StudentModel.findOne({ where: { id } });
+      const Student = await StudentModel.findOne({ where: { username_student } });
+      const hash = await argon2.hash(password_student);
   
       Student.set({
-        name_project,
-        ideal_period_project,
-        course_project,
-        weekly_workload_project,
-        email_project,
-        schedules_project,
-        number_vacancies_project,
-        description_project,
-        requirements_project,
-        remuneration_project,
-        remuneration_value_project,
-        professor_responsable_project
+        username_student,
+        password_student: hash,
+        name_student,
+        access_student,
+        course_student,
+        email_student,
+        contact_student,
+        city_student,
+        description_student,
+        image_student,
+        ra_student,
+        period_student
       });
       
       await Student.save();
