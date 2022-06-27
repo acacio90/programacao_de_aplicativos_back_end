@@ -1,3 +1,4 @@
+import ProfessorModel from '../models/professor';
 import ProjectModel from '../models/project';
 
 class ProjectController {
@@ -47,6 +48,13 @@ class ProjectController {
       where: {
         remuneration_project: flag
       },
+      include: [
+        {
+        model: ProfessorModel,
+            as: 'professor_project',
+            attributes: ['id', 'username_professor']
+        }
+      ]
     });
     return res.json(Project);
   }
