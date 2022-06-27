@@ -38,7 +38,7 @@ class ProfessorController {
         description_professor,
         status_professor
     });
-
+    
     return res.json(Professor);
   }
 
@@ -55,7 +55,6 @@ class ProfessorController {
         {
           model: File,
           as: 'img',
-          attributes: ['id', 'path']
         },
       ],
     });
