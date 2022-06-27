@@ -41,7 +41,15 @@ class ProjectController {
     const { flag } = req.body;
 
     if(flag == 2){
-      const Project = await ProjectModel.findAll();
+      const Project = await ProjectModel.findAll({
+        include: [
+          {
+          model: ProfessorModel,
+              as: 'professor_project',
+              attributes: ['id', 'username_professor']
+          }
+        ]}
+      );
       return res.json(Project);
     }
     const Project = await ProjectModel.findAll({
