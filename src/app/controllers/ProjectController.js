@@ -3,6 +3,7 @@ import ProjectModel from '../models/project';
 class ProjectController {
   async store(req, res) {
     const { name_project,
+        turno_project,
         ideal_period_project,
         course_project,
         weekly_workload_project,
@@ -18,6 +19,7 @@ class ProjectController {
     
     const Project = await ProjectModel.create({
         name_project,
+        turno_project,
         ideal_period_project,
         course_project,
         weekly_workload_project,
@@ -65,6 +67,7 @@ class ProjectController {
       const {
         id,
         name_project,
+        turno_project,
         ideal_period_project,
         course_project,
         weekly_workload_project,
@@ -82,6 +85,7 @@ class ProjectController {
   
       Project.set({
         name_project,
+        turno_project,
         ideal_period_project,
         course_project,
         weekly_workload_project,
