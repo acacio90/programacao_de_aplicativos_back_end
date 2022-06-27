@@ -55,7 +55,6 @@ class StudentController {
         {
           model: File,
           as: 'img',
-          attributes: ['id', 'path']
         },
       ],
     });
