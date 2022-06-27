@@ -14,7 +14,7 @@ class Project extends Model {
         number_vacancies_project: DataTypes.STRING,
         description_project: DataTypes.STRING,
         requirements_project: DataTypes.STRING,
-        remuneration_project: DataTypes.STRING,
+        remuneration_project: DataTypes.INTEGER,
         remuneration_value_project: DataTypes.STRING,
         professor_responsable_project: DataTypes.INTEGER,
       },

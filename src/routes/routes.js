@@ -42,7 +42,8 @@ routes.post('/Student/login', SessionStudentController.store);
 
 // Project - Testes 
 routes.post('/ProjectStore', ProjectController.store);
-routes.get('/ProjectIndex', ProjectController.index);
+routes.post('/ProjectIndex', ProjectController.index);
+routes.post('/ProjectProfessor', ProjectController.indexProfessor);
 routes.post('/ProjectShow', ProjectController.show);
 routes.post('/ProjectDestroy', ProjectController.destroy);
 routes.post('/ProjectUpdate', ProjectController.update);

@@ -11,8 +11,8 @@ class ProjectController {
         schedules_project,
         number_vacancies_project,
         description_project,
-        requirements_project,
         remuneration_project,
+        requirements_project,
         remuneration_value_project,
         professor_responsable_project } =
       req.body;
@@ -27,8 +27,8 @@ class ProjectController {
         schedules_project,
         number_vacancies_project,
         description_project,
-        requirements_project,
         remuneration_project,
+        requirements_project,
         remuneration_value_project,
         professor_responsable_project
     });
@@ -37,7 +37,28 @@ class ProjectController {
   }
 
   async index(req, res) {
-    const Project = await ProjectModel.findAll();
+    const { flag } = req.body;
+
+    if(flag == 2){
+      const Project = await ProjectModel.findAll();
+      return res.json(Project);
+    }
+    const Project = await ProjectModel.findAll({
+      where: {
+        remuneration_project: flag
+      },
+    });
+    return res.json(Project);
+  }
+
+  async indexProfessor(req, res) {
+    const { id } = req.body;
+
+    const Project = await ProjectModel.findAll({
+      where: {
+        professor_responsable_project: id
+      },
+    });
     return res.json(Project);
   }
 

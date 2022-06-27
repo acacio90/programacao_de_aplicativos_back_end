@@ -39,10 +39,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       remuneration_project: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       remuneration_value_project: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       professor_responsable_project: {
         type: Sequelize.INTEGER,
