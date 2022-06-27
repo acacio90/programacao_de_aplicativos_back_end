@@ -20,11 +20,24 @@ module.exports = {
       access_student: {
         type: Sequelize.INTEGER
       },
+      img_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'files',
+          },
+          key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
+        allowNull: true,
+      },
       course_student: {
         type: Sequelize.STRING
       },
       email_student: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       contact_student: {
         type: Sequelize.STRING
@@ -33,9 +46,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       description_student: {
-        type: Sequelize.STRING
-      },
-      image_student: {
         type: Sequelize.STRING
       },
       ra_student: {

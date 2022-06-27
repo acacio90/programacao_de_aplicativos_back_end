@@ -33,7 +33,7 @@ routes.post('/ProfessorStore', multer(multerConfig).single('file'), uploadImage,
 routes.get('/ProfessorIndex', ProfessorController.index);
 routes.post('/ProfessorShow', ProfessorController.show);
 routes.post('/ProfessorDestroy', ProfessorController.destroy);
-routes.post('/ProfessorUpdate', ProfessorController.update);
+routes.post('/ProfessorUpdate', multer(multerConfig).single('file'), uploadImage,ProfessorController.update);
 
 //ROTAS DE LOGIN
 routes.post('/Admin/login', SessionAdminController.store);
@@ -48,11 +48,11 @@ routes.post('/ProjectDestroy', ProjectController.destroy);
 routes.post('/ProjectUpdate', ProjectController.update);
 
 // Student - Testes 
-routes.post('/StudentStore', StudentController.store);
+routes.post('/StudentStore', multer(multerConfig).single('file'), uploadImage, StudentController.store);
 routes.get('/StudentIndex', verifyJWT, StudentController.index);
 routes.post('/StudentShow', StudentController.show);
 routes.post('/StudentDestroy', StudentController.destroy);
-routes.post('/StudentUpdate', StudentController.update);
+routes.post('/StudentUpdate', multer(multerConfig).single('file'), uploadImage, StudentController.update);
 
 // Candidate - Testes 
 routes.post('/CandidateStore', CandidateController.store);

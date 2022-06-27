@@ -36,7 +36,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       email_professor: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       contact_professor: {
         type: Sequelize.STRING

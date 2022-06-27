@@ -18,9 +18,10 @@ class ProfessorController {
         description_professor,
         status_professor } =
       req.body;
-      const { imageID } = req;
-    
+    const { imageID } = req;
+
     const hash = await argon2.hash(password_professor);
+    
 
     const Professor = await ProfessorModel.create({
         username_professor,
@@ -88,7 +89,8 @@ class ProfessorController {
         id,
         username_professor,
         password_professor,
-        access,
+        turno_professor,
+        access_professor,
         course_professor,
         email_professor,
         contact_professor,
@@ -100,11 +102,20 @@ class ProfessorController {
 
       const Professor = await ProfessorModel.findOne({ where: { id } });
       const old_image_id = Professor.img_id;
+      const hash = await argon2.hash(password_professor);
+      var password = '';
+
+      if(password_professor == ''){
+        password = Professor.password_professor;
+      }else{
+        password = hash;
+      }
 
       Professor.set({
         username_professor,
-        password_professor,
-        access,
+        password_professor: password,
+        turno_professor,
+        access_professor,
         img_id: imageID ? imageID : Professor.img_id,
         course_professor,
         email_professor,
@@ -122,7 +133,6 @@ class ProfessorController {
         fs.unlinkSync(
           path.resolve(
             __dirname,
-            '..',
             '..',
             '..',
             '..',

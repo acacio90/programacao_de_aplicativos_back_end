@@ -14,7 +14,6 @@ class Student extends Model {
         contact_student: DataTypes.STRING,
         city_student: DataTypes.STRING,
         description_student: DataTypes.STRING,
-        image_student: DataTypes.STRING,
         ra_student: DataTypes.STRING,
         period_student: DataTypes.STRING,
       },
@@ -26,6 +25,10 @@ class Student extends Model {
   }
 
   static associate(models) {
+    this.belongsTo(models.File, {
+      foreignKey: 'img_id',
+      as: 'img',
+    });
   }
 
   checkPassword(password) {

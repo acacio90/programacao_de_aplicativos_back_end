@@ -26,10 +26,10 @@ class Professor extends Model {
   }
 
   static associate(models) {
-    // this.belongsTo(models.File, {
-    //   foreignKey: 'img_id',
-    //   as: 'img',
-    // });
+    this.belongsTo(models.File, {
+      foreignKey: 'img_id',
+      as: 'img',
+    });
   }
 
   checkPassword(password) {
