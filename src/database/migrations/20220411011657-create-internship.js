@@ -42,7 +42,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       professor_responsable_internship: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'professors',
+          },
+          key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
+        allowNull: true,
       },
       created_at: {
         allowNull: false,

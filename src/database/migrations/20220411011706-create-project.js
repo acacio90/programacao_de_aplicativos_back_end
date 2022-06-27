@@ -11,6 +11,9 @@ module.exports = {
       name_project: {
         type: Sequelize.STRING
       },
+      turno_project: {
+        type: Sequelize.STRING
+      },
       ideal_period_project: {
         type: Sequelize.STRING
       },
@@ -42,7 +45,16 @@ module.exports = {
         type: Sequelize.STRING
       },
       professor_responsable_project: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'professors',
+          },
+          key: 'id',
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
+        },
+        allowNull: true,
       },
       created_at: {
         allowNull: false,

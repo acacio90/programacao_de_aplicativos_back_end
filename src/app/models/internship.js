@@ -15,7 +15,7 @@ class Internship extends Model {
         requirements_internship: DataTypes.INTEGER,
         remuneration_internship: DataTypes.INTEGER,
         remuneration_value_internship: DataTypes.STRING,
-        professor_responsable_internship: DataTypes.STRING,
+        professor_responsable_internship: DataTypes.INTEGER,
       },
       {
         sequelize: connection,
@@ -25,10 +25,10 @@ class Internship extends Model {
   }
 
   static associate(models) {
-    // this.hasMany(models.Professor, {
-    //   foreignKey: 'professor_responsable_internship',
-    //   as: 'professor_internship'
-    // })
+    this.belongsTo(models.Professor, {
+      foreignKey: 'id',
+      as: 'professor_internship'
+    })
   }
 }
 

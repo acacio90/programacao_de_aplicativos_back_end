@@ -5,6 +5,7 @@ class Project extends Model {
     super.init(
       {
         name_project: DataTypes.STRING,
+        turno_project: DataTypes.STRING,
         ideal_period_project: DataTypes.STRING,
         course_project: DataTypes.STRING,
         weekly_workload_project: DataTypes.STRING,
@@ -15,7 +16,7 @@ class Project extends Model {
         requirements_project: DataTypes.STRING,
         remuneration_project: DataTypes.STRING,
         remuneration_value_project: DataTypes.STRING,
-        professor_responsable_project: DataTypes.STRING,
+        professor_responsable_project: DataTypes.INTEGER,
       },
       {
         sequelize: connection,
@@ -25,10 +26,10 @@ class Project extends Model {
   }
 
   static associate(models) {
-    // this.hasMany(models.Professor, {
-    //   foreignKey: 'professor_responsable_project',
-    //   as: 'professor_project'
-    // })
+    this.belongsTo(models.Professor, {
+      foreignKey: 'id',
+      as: 'professor_project'
+    })
   }
 }
 
