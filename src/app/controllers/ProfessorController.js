@@ -9,6 +9,7 @@ class ProfessorController {
   async store(req, res) {
     const { username_professor,
         password_professor,
+        id_professor,
         turno_professor,
         access_professor,
         course_professor,
@@ -26,6 +27,7 @@ class ProfessorController {
     const Professor = await ProfessorModel.create({
         username_professor,
         password_professor: hash,
+        id_professor,
         access_professor,
         turno_professor,
         img_id: imageID,
@@ -89,6 +91,7 @@ class ProfessorController {
         id,
         username_professor,
         password_professor,
+        id_professor,
         turno_professor,
         access_professor,
         course_professor,
@@ -114,6 +117,7 @@ class ProfessorController {
       Professor.set({
         username_professor,
         password_professor: password,
+        id_professor,
         turno_professor,
         access_professor,
         img_id: imageID ? imageID : Professor.img_id,
