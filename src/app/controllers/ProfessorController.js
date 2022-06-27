@@ -51,6 +51,13 @@ class ProfessorController {
     const { id } = req.body;
     const Professor = await ProfessorModel.findOne({ 
       where: { id },
+      include: [
+        {
+          model: File,
+          as: 'img',
+          attributes: ['id', 'path']
+        },
+      ],
     });
     return res.json(Professor);
   }

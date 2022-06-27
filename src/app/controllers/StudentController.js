@@ -51,6 +51,13 @@ class StudentController {
     const { id } = req.body;
     const Student = await StudentModel.findOne({ 
       where: { id },
+      include: [
+        {
+          model: File,
+          as: 'img',
+          attributes: ['id', 'path']
+        },
+      ],
     });
     return res.json(Student);
   }
