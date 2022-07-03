@@ -1,6 +1,6 @@
 import CandidateModel from '../models/candidate';
 import ProjectModel from '../models/project';
-import Student from '../models/student';
+import StudentModel from '../models/student';
 
 class CandidateController {
   async store(req, res) {
@@ -35,6 +35,26 @@ class CandidateController {
     });
 
 
+    return res.json(Candidate);
+  }
+
+  async indexStudents(req, res) {
+    const { id } = req.body;
+
+    const Candidate = await CandidateModel.findAll({
+      where: {
+        project_candidate: id
+      },
+      attributes: { 
+        exclude: ['createdAt', 'updatedAt']
+      },
+      include: [
+        {
+          model: StudentModel,
+          as: 'candidate',
+        },
+      ],
+  });
     return res.json(Candidate);
   }
 

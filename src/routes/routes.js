@@ -58,6 +58,7 @@ routes.post('/StudentUpdate', multer(multerConfig).single('file'), uploadImage, 
 // Candidate - Testes 
 routes.post('/CandidateStore', CandidateController.store);
 routes.post('/CandidateIndex', CandidateController.index);
+routes.post('/IndexStudents', CandidateController.indexStudents);
 routes.post('/CandidateShow', CandidateController.show);
 routes.post('/CandidateDestroy', CandidateController.destroy);
 routes.post('/CandidateUpdate', CandidateController.update);

@@ -78,6 +78,17 @@ class ProjectController {
     return res.json(Project);
   }
 
+  async index(req, res) {
+    const { id } = req.body;
+
+    const Project = await ProjectModel.findAll({
+      where: {
+        professor_responsable_project: id
+      },
+    });
+    return res.json(Project);
+  }
+
   async show(req, res) {
     const { id } = req.body;
     const Project = await ProjectModel.findOne({ 
