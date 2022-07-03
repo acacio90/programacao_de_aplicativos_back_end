@@ -84,13 +84,6 @@ class ProjectController {
     const { id } = req.body;
     const Project = await ProjectModel.findOne({ 
       where: { id },
-      include: [
-        {
-          model: File,
-          as: 'file',
-          attributes: ['id', 'path']
-        },
-      ],
     });
     return res.json(Project);
   }
