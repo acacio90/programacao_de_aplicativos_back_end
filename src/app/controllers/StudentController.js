@@ -10,7 +10,6 @@ class StudentController {
     const { username_student,
         password_student,
         turno_student,
-        access_student,
         course_student,
         email_student,
         contact_student,
@@ -28,7 +27,7 @@ class StudentController {
         username_student,
         password_student: hash,
         turno_student,
-        access_student,
+        access_student: 2,
         img_id: imageID,
         course_student,
         email_student,
@@ -51,6 +50,12 @@ class StudentController {
     const { id } = req.body;
     const Student = await StudentModel.findOne({ 
       where: { id },
+      include: [
+        {
+          model: File,
+          as: 'img',
+        },
+      ],
     });
     return res.json(Student);
   }
@@ -75,7 +80,6 @@ class StudentController {
         username_student,
         password_student,
         turno_student,
-        access_student,
         course_student,
         email_student,
         contact_student,
@@ -101,7 +105,7 @@ class StudentController {
         username_student,
         password_student: password,
         turno_student,
-        access_student,
+        access_student: 2,
         img_id: imageID ? imageID : Student.img_id,
         course_student,
         email_student,

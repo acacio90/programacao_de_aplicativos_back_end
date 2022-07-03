@@ -11,7 +11,6 @@ class ProfessorController {
         password_professor,
         id_professor,
         turno_professor,
-        access_professor,
         course_professor,
         email_professor,
         contact_professor,
@@ -28,7 +27,7 @@ class ProfessorController {
         username_professor,
         password_professor: hash,
         id_professor,
-        access_professor,
+        access_professor: 1,
         turno_professor,
         img_id: imageID,
         course_professor,
@@ -38,7 +37,7 @@ class ProfessorController {
         description_professor,
         status_professor
     });
-
+    
     return res.json(Professor);
   }
 
@@ -51,6 +50,12 @@ class ProfessorController {
     const { id } = req.body;
     const Professor = await ProfessorModel.findOne({ 
       where: { id },
+      include: [
+        {
+          model: File,
+          as: 'img',
+        },
+      ],
     });
     return res.json(Professor);
   }
@@ -93,7 +98,6 @@ class ProfessorController {
         password_professor,
         id_professor,
         turno_professor,
-        access_professor,
         course_professor,
         email_professor,
         contact_professor,
@@ -119,7 +123,7 @@ class ProfessorController {
         password_professor: password,
         id_professor,
         turno_professor,
-        access_professor,
+        access_professor: 1,
         img_id: imageID ? imageID : Professor.img_id,
         course_professor,
         email_professor,
