@@ -1,6 +1,7 @@
 import CandidateModel from '../models/candidate';
 import ProjectModel from '../models/project';
 import StudentModel from '../models/student';
+import FileModel from '../models/file';
 
 class CandidateController {
   async store(req, res) {
@@ -52,6 +53,17 @@ class CandidateController {
         {
           model: StudentModel,
           as: 'candidate',
+          include: [{
+            model: FileModel,
+            as: "img",
+            attributes: { 
+              exclude: ['createdAt', 'updatedAt']
+            },
+          }
+          ],
+          attributes: { 
+            exclude: ['createdAt', 'updatedAt']
+          },
         },
       ],
   });
