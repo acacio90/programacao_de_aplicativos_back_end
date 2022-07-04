@@ -1,6 +1,7 @@
 import ProfessorModel from '../models/professor';
 import ProjectModel from '../models/project';
-import File from '../models/file';
+import CandidateModel from '../models/candidate';
+
 
 class ProjectController {
   async store(req, res) {
@@ -92,6 +93,16 @@ class ProjectController {
     try {
       const { id } = req.body;
       const Project = await ProjectModel.findOne({ where: { id } });
+
+      const Candidates = await CandidateModel.findAll({
+        where: {
+          project_candidate: id
+        },
+      });
+
+      Candidates.forEach(element => {
+          element.destroy()
+      });
 
       await Project.destroy();
       return res.json({ good: 'Destroyed' });

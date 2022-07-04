@@ -20,10 +20,12 @@ class Candidate extends Model {
     this.hasMany(models.Student ,{
         foreignKey: 'id',
         as: 'candidate',
+        onDelete: 'cascade'
       });
     this.hasMany(models.Project ,{
         foreignKey: 'id',
         as: 'project',
+        onDelete: 'cascade'
       });
   }
 }
